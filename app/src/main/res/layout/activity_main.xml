@@ -25,6 +25,7 @@
         android:layout_height="51dp"
         android:background="#ffcdd2"
         android:text="&gt;"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.825"
@@ -37,6 +38,7 @@
         android:layout_width="49dp"
         android:layout_height="51dp"
         android:text="&lt;"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.129"
@@ -62,6 +64,7 @@
         android:layout_width="160dp"
         android:layout_height="216dp"
         android:layout_marginTop="32dp"
+        android:layout_marginBottom="50dp"
         android:background="#d22e2d"
         android:text="@string/text_pull"
         android:textSize="18sp"
@@ -104,14 +107,17 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="389dp"
+        android:layout_marginTop="100dp"
         android:background="@color/purple_500"
         android:gravity="start"
         android:text="@string/footer"
         android:textColor="#000"
         android:textSize="20sp"
-        app:layout_constraintTop_toTopOf="@+id/textView2"
-        tools:layout_editor_absoluteX="-2dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.995" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
