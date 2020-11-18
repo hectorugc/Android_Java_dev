@@ -1,19 +1,44 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
+   private ArrayList<Pull> modele;
+   private int noPullCourant;
+
+   protected void onSaveInstancesState(Bundle outState){
+       super.onSaveInstanceState(outState);
+
+       outState.putInt("noPull",this.noPullCourant);
+       outState.putSerializable("liste",this.modele);
+   }
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);                                                                                                                                                                     
         setContentView(R.layout.activity_main);
+        if (savedInstanceState != null){
+            this.noPullCourant = savedInstanceState.getInt("noPull");
+            this.modele = (ArrayList<Pull>) savedInstanceState.getSerializable("liste");
+        }
     }
+
+    public void startSecond(View v){
+       startActivity(new Intent(this.));
+    }
+
+
     @Override
     protected void onStart(){
         super.onStart();
