@@ -1,10 +1,12 @@
-package com.example.myapplication;
+package com.example.myapplication.Control;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class SecondActivity extends AppCompatActivity {
+import com.example.myapplication.R;
+
+public class SasirNuveauPullActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

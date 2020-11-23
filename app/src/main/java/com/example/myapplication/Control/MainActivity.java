@@ -1,13 +1,15 @@
-package com.example.myapplication;
+package com.example.myapplication.Control;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.example.myapplication.Model.Pull;
+import com.example.myapplication.R;
 
 import java.util.ArrayList;
 
@@ -17,7 +19,11 @@ public class MainActivity extends AppCompatActivity {
 
    protected void onSaveInstancesState(Bundle outState){
        super.onSaveInstanceState(outState);
-
+        modele = new ArrayList<>();
+        modele.add(new Pull("Pull # 1",
+                "This is the new Pull",
+                12,
+                "asa"));
        outState.putInt("noPull",this.noPullCourant);
        outState.putSerializable("liste",this.modele);
    }
@@ -32,11 +38,14 @@ public class MainActivity extends AppCompatActivity {
             this.noPullCourant = savedInstanceState.getInt("noPull");
             this.modele = (ArrayList<Pull>) savedInstanceState.getSerializable("liste");
         }
+
     }
 
-    public void startSecond(View v){
-       startActivity(new Intent(this.));
-    }
+
+
+   /* public void startSecond(View v){
+       startActivity(new Intent(this.));*/
+
 
 
     @Override
