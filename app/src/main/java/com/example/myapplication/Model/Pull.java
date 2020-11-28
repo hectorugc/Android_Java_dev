@@ -6,9 +6,9 @@ public class Pull {
     private String titre;
     private String description;
     private double prix;
-    private String img;
+    private int img;
 
-    public Pull(String titre, String description, double prix, String img) {
+    public Pull(String titre, String description, double prix, int img) {
         this.titre = titre;
         this.description = description;
         this.prix = prix;
@@ -39,11 +39,11 @@ public class Pull {
         this.prix = prix;
     }
 
-    public String getImg() {
+    public int getImg() {
         return img;
     }
 
-    public void setImg(String img) {
+    public void setImg(int img) {
         this.img = img;
     }
 }

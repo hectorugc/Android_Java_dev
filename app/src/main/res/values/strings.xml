@@ -4,5 +4,5 @@
     <string name="text_pull">Un pull qui ravira les petits et les grands.Tricote par dautentiques grands-méres Australiens. en laine 100%
     cotton naturel issu dune filiere agriculture durable certifie ISO-2560</string>
     <string name="footer">Realise par G.Hector,2020</string>
-    <string name="ajouter_painer">Pull n ajouté au painer</string>
+    <string name="ajouter_painer">Pull n.%1$d ajoute au panier</string>
 </resources>

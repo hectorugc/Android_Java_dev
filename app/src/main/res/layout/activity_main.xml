@@ -14,10 +14,10 @@
         android:contentDescription="Pullmoche"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.464"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.121"
+        app:layout_constraintVertical_bias="0.067"
         app:srcCompat="@drawable/pull" />
 
     <Button
@@ -26,6 +26,7 @@
         android:layout_height="51dp"
         android:background="#ffcdd2"
         android:text="&gt;"
+        android:onClick="nextPull"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,6 +41,7 @@
         android:layout_height="51dp"
         android:text="&lt;"
         android:textSize="25sp"
+        android:onClick="nextPull"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.129"
@@ -48,7 +50,7 @@
         app:layout_constraintVertical_bias="0.204" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="213dp"
@@ -61,7 +63,7 @@
         app:layout_constraintVertical_bias="0.002" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textViewDescription"
         android:layout_width="160dp"
         android:layout_height="216dp"
         android:layout_marginTop="32dp"
@@ -73,7 +75,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.076"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/textViewTitle"
         app:layout_constraintVertical_bias="0.0" />
 
     <Spinner
@@ -85,8 +87,8 @@
         android:layout_marginTop="41dp"
         android:background="@android:drawable/btn_dropdown"
         android:spinnerMode="dropdown"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="@+id/textView" />
+        app:layout_constraintStart_toEndOf="@+id/textViewDescription"
+        app:layout_constraintTop_toTopOf="@+id/textViewTitle" />
 
     <Spinner
         android:id="@+id/spinner2"
@@ -97,7 +99,7 @@
         android:layout_marginTop="72dp"
         android:background="@android:drawable/btn_dropdown"
         android:spinnerMode="dropdown"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintStart_toEndOf="@+id/textViewDescription"
         app:layout_constraintTop_toTopOf="@+id/spinner1" />
 
 
@@ -132,8 +134,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
+        android:onClick="toast"
         app:srcCompat="@drawable/ic_basket_fill"
         tools:ignore="VectorDrawableCompat" />
+    <ImageView
+        android:id="@+id/expanded_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/pull"
+        android:contentDescription="@string/text_pull"
+        android:onClick="onClickImage" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
