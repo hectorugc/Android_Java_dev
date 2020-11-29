@@ -1,20 +1,28 @@
 package com.example.myapplication.Model;
 import java.util.ArrayList;
 
-public class Pull {
+public abstract class Produit  {
 
     private String titre;
     private String description;
     private double prix;
     private int img;
+    private int idCategorie;
 
-    public Pull(String titre, String description, double prix, int img) {
+    public Produit(String titre, String description, double prix, int img,int idCategorie) {
         this.titre = titre;
         this.description = description;
         this.prix = prix;
         this.img = img;
+        this.idCategorie = idCategorie;
+    }
+    public int getIdCategorie() {
+        return idCategorie;
     }
 
+    public void setIdCategorie(int idCategorie) {
+        this.idCategorie = idCategorie;
+    }
     public String getTitre() {
         return titre;
     }

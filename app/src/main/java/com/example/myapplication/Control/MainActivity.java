@@ -9,17 +9,18 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.myapplication.Model.Pull;
+import com.example.myapplication.Model.Categorie;
 import com.example.myapplication.R;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    private ArrayList<Pull> modele;
+    private ArrayList<Categorie> modele;
     private int noPullCourant;
     public static ImageView my_image;
     public  TextView text_title;
@@ -37,33 +38,96 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Intent category = new Intent(MainActivity.this, ListActivity.class);
+        startActivity(category);
         if (savedInstanceState != null) {
             this.noPullCourant = savedInstanceState.getInt("noPull");
-            this.modele = (ArrayList<Pull>) savedInstanceState.getSerializable("liste");
+            this.modele = (ArrayList<Categorie>) savedInstanceState.getSerializable("liste");
         }
 
     String.valueOf(noPullCourant);
         modele = new ArrayList<>();
-        modele.add(new Pull("Pull # 1",
-                "This is the new Pull",
+        modele.add(new Categorie("pull 1",
+                "this is a pull an its conetent",
+                34,
+                R.drawable.pull,
+                1,
+                1,
+                "Pulls",
+                R.drawable.pull ));
+        modele.add(new Categorie("Pull # 2",
+                "This is the new Categorie",
                 12,
-                R.drawable.pull));
-        modele.add(new Pull("Pull # 2",
-                "This is the new Pull",
+                R.drawable.pull2,
+                1,
+                1,
+                "Pulls",
+                R.drawable.pull ));
+        modele.add(new Categorie("Pull # 3",
+                "This is the new Categorie",
+                40,
+                R.drawable.pull3,
+                1,
+                1,
+                "Pulls",
+                R.drawable.pull ));
+        modele.add(new Categorie("Pull # 4",
+                "This is the new Categorie",
                 12,
-                R.drawable.pull2));
-        modele.add(new Pull("Pull # 3",
-                "This is the new Pull",
+                R.drawable.pull4,
+                1,
+                1,
+                "Pulls",
+                R.drawable.pull ));
+        modele.add(new Categorie("Pull # 5",
+                "This is the new Categorie",
                 12,
-                R.drawable.pull3));
-        modele.add(new Pull("Pull # 4",
-                "This is the new Pull",
+                R.drawable.pull5,
+                1,
+                1,
+                "Pulls",
+                R.drawable.pull ));
+        //bonnet
+        modele.add(new Categorie("bonet 1",
+                "this is a bonne an its conetent",
+                34,
+                R.drawable.bonne,
+                1,
+                1,
+                "Bonnet",
+                R.drawable.bonne ));
+        modele.add(new Categorie("Pull # 2",
+                "This is the new Categorie",
                 12,
-                R.drawable.pull4));
-        modele.add(new Pull("Pull # 5",
-                "This is the new Pull",
+                R.drawable.pull2,
+                1,
+                1,
+                "Pulls",
+                R.drawable.pull ));
+        modele.add(new Categorie("Pull # 3",
+                "This is the new Categorie",
+                40,
+                R.drawable.pull3,
+                1,
+                1,
+                "Pulls",
+                R.drawable.pull ));
+        modele.add(new Categorie("Pull # 4",
+                "This is the new Categorie",
                 12,
-                R.drawable.pull5));
+                R.drawable.pull4,
+                1,
+                1,
+                "Pulls",
+                R.drawable.pull ));
+        modele.add(new Categorie("Pull # 5",
+                "This is the new Categorie",
+                12,
+                R.drawable.pull5,
+                1,
+                1,
+                "Pulls",
+                R.drawable.pull ));
     }
 
 
@@ -101,20 +165,19 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void nextPull(View v) {
+    public void nextCategorie(View v) {
 
         noPullCourant++;
         noPullCourant=noPullCourant % modele.size();
         my_image.setImageResource(modele.get(noPullCourant).getImg());
         text_title.setText(modele.get(noPullCourant).getTitre());
         text_description.setText(modele.get(noPullCourant).getDescription());
-        Log.e("pull curant", String.valueOf(this.noPullCourant)+"kkk");
+        Log.e("pull curant", String.valueOf(this.noPullCourant));
 
     }
     public void toast(View v){
         Toast.makeText(this, String.format(getString( R.string.ajouter_painer),this.noPullCourant), Toast.LENGTH_SHORT).show();
-        Intent NuveauPull = new Intent(MainActivity.this, SasirNuveauPullActivity.class);
-        startActivity(NuveauPull);
+
     }
 
     public void onClickImage(View v){
