@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.net.CookieHandler;
 import java.util.ArrayList;
 
 import fr.univ_lorraine.iutmetz.wmce.dmcd0.modele.Categorie;
@@ -21,12 +22,12 @@ public class CategoriesAdapter extends ArrayAdapter<Categorie> {
 
 
     private ArrayList<Categorie> listeCategories;
-    private ArrayList<Bitmap> listeImages;
+    private ArrayList<Bitmap> listeImagesCategories;
 
-    public CategoriesAdapter(Context context, ArrayList<Categorie> liste, ArrayList<Bitmap> listeImages) {
+    public CategoriesAdapter(Context context, ArrayList<Categorie> liste, ArrayList<Categorie> listeImages) {
         super(context, 0, liste);
         this.listeCategories = liste;
-        this.listeImages = listeImages;
+        this.listeImagesCategories = listeImages;
     }
 
     /**

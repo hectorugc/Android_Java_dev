@@ -18,10 +18,11 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import fr.univ_lorraine.iutmetz.wmce.dmcd0.modele.ActiviteEnAttenteImage;
 import fr.univ_lorraine.iutmetz.wmce.dmcd0.modele.Categorie;
 
 public class CategoriesActivity extends AppCompatActivity
-        implements AdapterView.OnItemClickListener,ActiviteEnAttenteImage {
+        implements AdapterView.OnItemClickListener, ActiviteEnAttenteImage {
 
     public static final int VC_VENTE = 0;
     public static final int VC_CATALOGUE = 1;
@@ -33,23 +34,18 @@ public class CategoriesActivity extends AppCompatActivity
     private RadioButton rbVente;
     private ArrayList<Bitmap> listeImageCategories;
     private ArrayAdapter adaptateur;
-
-
-
+    private ArrayList<Object> listeImagesCategories;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categories);
-        private void chargeImage(int i=0){
-            for (int i = 0;i < this.listeCategories.size();i++){
-                this.listeImageCategories.add(null);
-                ImageFromURL chargement = new ImageFromURL(this);
-                chargement.execute("https://devweb.iutmetz.univ-lorraine.fr/~garciaco2u/images/" +
-                        this.listeCategories.get(i).getVisuel() + ".jpg");
-            }
-
+        this.listeImagesCategories = new ArrayList<>();
+        for (int i = 0 ; i < this.listeCategories.size(); i++){
+            this.listeImagesCategories.add(null);
+            ImageFromURL chargement = new ImageFromURL();
+            chargement.execute("https://devweb.iutmetz.univ-lorraine/~garciaco2u/images/images" + this.listeCategories.get(i).getVisuel()+".jpg", String.valueOf(i));
         }
         // Cas 1 : l'app vient d'être lancée
         if (savedInstanceState == null) {
@@ -67,7 +63,7 @@ public class CategoriesActivity extends AppCompatActivity
 
     }
     @Override
-    public void receptionneImage(Object[] resultats){
+    public void receptionnerImage(Object[] resultats){
         if (resultats[0] != null){
             int idx = Integer.parseInt(resultats[1].toString());
             Bitmap img = (Bitmap) resultats[0];
@@ -95,7 +91,7 @@ public class CategoriesActivity extends AppCompatActivity
         ListView lvCategories = this.findViewById(R.id.lv_liste);
 
         CategoriesAdapter adaptateur = new CategoriesAdapter(
-                this,
+                this,this.listeCategories,
                 this.listeCategories);
 
         lvCategories.setAdapter(adaptateur);
