@@ -16,13 +16,17 @@ import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+
 import java.util.ArrayList;
 
 import fr.univ_lorraine.iutmetz.wmce.dmcd0.modele.ActiviteEnAttenteImage;
 import fr.univ_lorraine.iutmetz.wmce.dmcd0.modele.Categorie;
 
 public class CategoriesActivity extends AppCompatActivity
-        implements AdapterView.OnItemClickListener, ActiviteEnAttenteImage {
+        implements AdapterView.OnItemClickListener, ActiviteEnAttenteImage ,
+com.android.volley.Response.Listener<JSONArray>,
+com.android.volley.Response.ErrorListener{
 
     public static final int VC_VENTE = 0;
     public static final int VC_CATALOGUE = 1;
