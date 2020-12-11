@@ -16,6 +16,8 @@ import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.android.volley.VolleyError;
+
 import org.json.JSONArray;
 
 import java.util.ArrayList;
@@ -154,4 +156,13 @@ com.android.volley.Response.ErrorListener{
         this.txtPanier.setText(String.format(getString(R.string.ac_txt_panier), this.panier));
     }
 
+    @Override
+    public void onErrorResponse(VolleyError error) {
+
+    }
+
+    @Override
+    public void onResponse(JSONArray response) {
+
+    }
 }
