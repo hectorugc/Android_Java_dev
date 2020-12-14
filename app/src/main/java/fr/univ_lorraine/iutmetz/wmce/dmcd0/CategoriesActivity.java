@@ -24,6 +24,7 @@ import java.util.ArrayList;
 
 import fr.univ_lorraine.iutmetz.wmce.dmcd0.modele.ActiviteEnAttenteImage;
 import fr.univ_lorraine.iutmetz.wmce.dmcd0.modele.Categorie;
+import fr.univ_lorraine.iutmetz.wmce.dmcd0.modele.ImageFromURL;
 
 public class CategoriesActivity extends AppCompatActivity
         implements AdapterView.OnItemClickListener, ActiviteEnAttenteImage ,

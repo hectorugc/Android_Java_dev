@@ -1,4 +1,4 @@
-package fr.univ_lorraine.iutmetz.wmce.dmcd0;
+package fr.univ_lorraine.iutmetz.wmce.dmcd0.modele;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -8,7 +8,7 @@ import android.util.Log;
 import java.io.InputStream;
 import java.net.URL;
 
-public class ImageFromURL extends AsyncTask<String ,Void,Object[]> {
+public class ImageFromURL extends AsyncTask<String, Void, Object[]> {
     private Object activite;
 
     @Override

@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".SplashScreenActivity"></activity>
 
         <meta-data
             android:name="preloaded_fonts"
@@ -23,11 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".VenteCatalogueActivity" />
-
-
+        <activity android:name=".VenteCatalogueActivity" />
     </application>
 
 </manifest>
