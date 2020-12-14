@@ -44,12 +44,12 @@ public class VenteCatalogueActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ventecatalogue);
 
-        // cas 1 : appel depuis CategoriesActivity
+        // cas 1 : appel depuis CategoriesFragment
         if (savedInstanceState==null) {
-            // récupération des paramètes envoyés par CategoriesActivity
+            // récupération des paramètes envoyés par CategoriesFragment
             int idCateg = this.getIntent().getIntExtra("id_categ", 1);
             this.panier = this.getIntent().getDoubleExtra("panier", 0);
-            this.roleActivite = this.getIntent().getIntExtra("role_activite", CategoriesActivity.VC_CATALOGUE);
+            this.roleActivite = this.getIntent().getIntExtra("role_activite", fr.univ_lorraine.iutmetz.wmce.dmcd0.CategoriesFragment.VC_CATALOGUE);
 
             // Initialisation des données à afficher
             this.modele = new ArrayList<>();
@@ -124,7 +124,7 @@ public class VenteCatalogueActivity extends AppCompatActivity
         // Si l'activité est utilisée en catalogue, pas d'affichage des boutons "panier" et "annuler"
         ImageView ibPanier = this.findViewById(R.id.ib_panier);
         Button btnAnnuler = this.findViewById(R.id.btn_annuler);
-        if (this.roleActivite==CategoriesActivity.VC_VENTE) {
+        if (this.roleActivite== fr.univ_lorraine.iutmetz.wmce.dmcd0.CategoriesFragment.VC_VENTE) {
             ibPanier.setVisibility(View.VISIBLE);
             btnAnnuler.setVisibility(View.VISIBLE);
         } else {
@@ -252,7 +252,7 @@ public class VenteCatalogueActivity extends AppCompatActivity
     }
 
     /**
-     * Gestion du retour vers l'activité CategoriesActivity
+     * Gestion du retour vers l'activité CategoriesFragment
      * Permet de factoriser le code pour les deux méthodes précédentes
      */
     public void onClickRetour() {

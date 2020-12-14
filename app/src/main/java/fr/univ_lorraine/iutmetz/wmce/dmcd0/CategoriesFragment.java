@@ -5,7 +5,7 @@ package fr.univ_lorraine.iutmetz.wmce.dmcd0;
 
 import android.content.Intent;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -26,7 +26,7 @@ import fr.univ_lorraine.iutmetz.wmce.dmcd0.modele.ActiviteEnAttenteImage;
 import fr.univ_lorraine.iutmetz.wmce.dmcd0.modele.Categorie;
 import fr.univ_lorraine.iutmetz.wmce.dmcd0.modele.ImageFromURL;
 
-public class CategoriesActivity extends AppCompatActivity
+public class CategoriesFragment extends Fragment
         implements AdapterView.OnItemClickListener, ActiviteEnAttenteImage ,
 com.android.volley.Response.Listener<JSONArray>,
 com.android.volley.Response.ErrorListener{
@@ -42,12 +42,11 @@ com.android.volley.Response.ErrorListener{
     private ArrayList<Bitmap> listeImageCategories;
     private ArrayAdapter adaptateur;
     private ArrayList<Object> listeImagesCategories;
+    private View root;
 
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreateView(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_categories);
+        setContentView(root);
         this.listeImagesCategories = new ArrayList<>();
         for (int i = 0 ; i < this.listeCategories.size(); i++){
             this.listeImagesCategories.add(null);
@@ -93,9 +92,9 @@ com.android.volley.Response.ErrorListener{
 
         super.onStart();
 
-        this.txtPanier = this.findViewById(R.id.txt_panier);
-        this.rbVente = this.findViewById(R.id.rb_vente);
-        ListView lvCategories = this.findViewById(R.id.lv_liste);
+        this.txtPanier = this.root.findViewById(R.id.txt_panier);
+        this.rbVente = this.root.findViewById(R.id.rb_vente);
+        ListView lvCategories = this.root.findViewById(R.id.lv_liste);
 
         CategoriesAdapter adaptateur = new CategoriesAdapter(
                 this,this.listeCategories,
@@ -115,7 +114,7 @@ com.android.volley.Response.ErrorListener{
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-        Intent intent = new Intent(CategoriesActivity.this, VenteCatalogueActivity.class);
+        Intent intent = new Intent(CategoriesFragment.this, VenteCatalogueActivity.class);
         intent.putExtra("id_categ", this.listeCategories.get(position).getId());
         intent.putExtra("panier", this.panier);
         if (this.rbVente.isChecked()) {
